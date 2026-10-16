@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_sayurmayur/widget/navbar_widget.dart';
-import 'package:flutter_launch/flutter_launch.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,10 +24,7 @@ class SayurDetail extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color(0xFF545D68),
-          ),
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF545D68)),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -67,9 +64,7 @@ class SayurDetail extends StatelessWidget {
           ),
           SizedBox(height: 16.0.h),
           Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16.sp,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 16.sp),
             child: Hero(
               tag: assetPath,
               child: Container(
@@ -102,9 +97,10 @@ class SayurDetail extends StatelessWidget {
             child: Text(
               sayurname,
               style: TextStyle(
-                  color: const Color(0xFF575E67),
-                  fontFamily: 'Varela',
-                  fontSize: 24.0.sp),
+                color: const Color(0xFF575E67),
+                fontFamily: 'Varela',
+                fontSize: 24.0.sp,
+              ),
             ),
           ),
           SizedBox(height: 16.0.sp),
@@ -135,11 +131,13 @@ class SayurDetail extends StatelessWidget {
               child: Center(
                 child: InkWell(
                   onTap: () async {
-                    await FlutterLaunch.launchWhatsapp(
-                      phone: '628123456789',
-                      message:
-                          'Hi Tegar Sayur,Saya mau order $sayurname untuk hari ini, apa bisa diantar kerumah?',
+                    final pesan = Uri.encodeComponent(
+                      'Hi Tegar Sayur,Saya mau order $sayurname untuk hari ini, apa bisa diantar kerumah?',
                     );
+                    final url = Uri.parse(
+                      'https://wa.me/628123456789?text=$pesan',
+                    );
+                    await launchUrl(url, mode: LaunchMode.externalApplication);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -149,9 +147,7 @@ class SayurDetail extends StatelessWidget {
                         size: 32.sp,
                         color: Colors.white,
                       ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
+                      SizedBox(width: 8.w),
                       Text(
                         'Pesan via Whatsapp',
                         style: TextStyle(

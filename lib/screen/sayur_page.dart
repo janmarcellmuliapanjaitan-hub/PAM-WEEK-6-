@@ -21,12 +21,12 @@ class SayurPage extends StatelessWidget {
   const SayurPage({super.key});
   // Daftar sayur
   List<Sayur> get listSayurs => [
-        Sayur(name: 'Bayam', imageUrl: 'assets/Bayam.jpeg', price: 5000),
-        Sayur(name: 'Cabai', imageUrl: 'assets/Cabai.jpg', price: 6000),
-        Sayur(name: 'Kentang', imageUrl: 'assets/Kentang.jpg', price: 12000),
-        Sayur(name: 'Sawi', imageUrl: 'assets/Sawi.png', price: 3000),
-        Sayur(name: 'Terong', imageUrl: 'assets/Terong.jpeg', price: 3000),
-        Sayur(name: 'Tomat', imageUrl: 'assets/Tomat.jpeg', price: 3000),
+        Sayur(name: 'Bayam', imageUrl: 'assets/box1.jpg', price: 5000),
+        Sayur(name: 'Cabai', imageUrl: 'assets/box2.jpg', price: 6000),
+        Sayur(name: 'Kentang', imageUrl: 'assets/box3.jpeg', price: 12000),
+        Sayur(name: 'Sawi', imageUrl: 'assets/box4.jpg', price: 3000),
+        Sayur(name: 'Terong', imageUrl: 'assets/box5.jpg', price: 3000),
+        Sayur(name: 'Tomat', imageUrl: 'assets/box6.jpg', price: 3000),
         // Tambahkan sayuran lain sesuai kebutuhan
       ];
 
